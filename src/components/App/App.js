@@ -12,21 +12,10 @@ class App extends Component {
     bad: 0,
   };
 
-  addGood = () => {
-    this.setState(prevGood => ({
-      good: prevGood.good + 1,
-    }));
-  };
-
-  addNeutral = () => {
-    this.setState(prevNeutral => ({
-      neutral: prevNeutral.neutral + 1,
-    }));
-  };
-
-  addBad = () => {
-    this.setState(prevBad => ({
-      bad: prevBad.bad + 1,
+  addReview = e => {
+    const { name } = e.currentTarget;
+    this.setState(prevReview => ({
+      [name]: prevReview[name] + 1,
     }));
   };
 
