@@ -3,17 +3,17 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
     <ul>
       <li>
         <button type="button" onClick={onLeaveFeedback.addGood}>
-          Good
+          {options[0]}
         </button>
       </li>
       <li>
         <button type="button" onClick={onLeaveFeedback.addNeutral}>
-          Neutral
+          {options[1]}
         </button>
       </li>
       <li>
         <button type="button" onClick={onLeaveFeedback.addBad}>
-          Bad
+          {options[2]}
         </button>
       </li>
     </ul>

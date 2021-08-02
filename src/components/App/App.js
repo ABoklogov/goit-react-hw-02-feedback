@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import Statistics from '../Statistics';
 import FeedbackOptions from '../FeedbackOptions';
+import Section from '../Section';
+import Notification from '../Notification';
 // import PropTypes from 'prop-types';
 
 class App extends Component {
@@ -39,6 +41,7 @@ class App extends Component {
   };
 
   render() {
+    const arrState = Object.keys(this.state);
     const { good } = this.state;
     const { neutral } = this.state;
     const { bad } = this.state;
@@ -46,23 +49,24 @@ class App extends Component {
     const positivePercentage = this.countPositiveFeedbackPercentage();
 
     return (
-      <div>
-        <div>
-          <p>Please leave feedback</p>
-
+      <>
+        <Section title="Please leave feedback">
           <FeedbackOptions
-            // options={ }
+            options={arrState}
             onLeaveFeedback={this}
           ></FeedbackOptions>
-        </div>
-        <Statistics
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          total={totalFeedback}
-          positivePercentage={positivePercentage}
-        ></Statistics>
-      </div>
+
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={totalFeedback}
+            positivePercentage={positivePercentage}
+          >
+            <Notification message="No feedback given"></Notification>
+          </Statistics>
+        </Section>
+      </>
     );
   }
 }
