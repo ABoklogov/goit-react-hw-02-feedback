@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './Statistics.scss';
 
 const Statistics = ({
@@ -28,12 +29,21 @@ const Statistics = ({
             <p>Total: {total}</p>
           </li>
           <li>
-            <p>Positive feedback: {total === 0 ? 0 : positivePercentage}</p>
+            <p>Positive feedback: {total === 0 ? 0 : positivePercentage}%</p>
           </li>
         </ul>
       )}
     </div>
   );
+};
+
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
+  children: PropTypes.element.isRequired,
 };
 
 export default Statistics;
