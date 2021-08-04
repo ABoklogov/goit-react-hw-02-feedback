@@ -12,10 +12,9 @@ class App extends Component {
     bad: 0,
   };
 
-  addReview = e => {
-    const { name } = e.currentTarget;
+  addReview = review => {
     this.setState(prevReview => ({
-      [name]: prevReview[name] + 1,
+      [review]: prevReview[review] + 1,
     }));
   };
 
@@ -42,7 +41,7 @@ class App extends Component {
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={arrState}
-            onLeaveFeedback={this}
+            onLeaveFeedback={this.addReview}
           ></FeedbackOptions>
 
           <Statistics

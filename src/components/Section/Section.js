@@ -1,6 +1,8 @@
+import './Section.scss';
+
 const Section = ({ title, children }) => {
   return (
-    <div>
+    <div className="section">
       <h1>{title}</h1>
       {children}
     </div>

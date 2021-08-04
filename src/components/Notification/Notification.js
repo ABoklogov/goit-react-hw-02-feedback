@@ -1,5 +1,7 @@
+import './Notification.scss';
+
 const Notification = ({ message }) => {
-  return <p>{message}</p>;
+  return <p className="notification">{message}</p>;
 };
 
 export default Notification;

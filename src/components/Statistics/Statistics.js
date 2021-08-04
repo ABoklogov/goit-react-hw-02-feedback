@@ -1,3 +1,5 @@
+import './Statistics.scss';
+
 const Statistics = ({
   good,
   neutral,
@@ -12,7 +14,7 @@ const Statistics = ({
       {good + neutral + bad === 0 ? (
         children
       ) : (
-        <ul>
+        <ul className="statistics-list">
           <li>
             <p>Good: {good}</p>
           </li>
