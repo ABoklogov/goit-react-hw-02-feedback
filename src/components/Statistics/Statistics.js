@@ -1,49 +1,30 @@
 import PropTypes from 'prop-types';
 import './Statistics.scss';
+import StatisticsList from './StatisticsList';
+import Notification from './Notification';
 
-const Statistics = ({
-  good,
-  neutral,
-  bad,
-  total,
-  positivePercentage,
-  children,
-}) => {
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
     <div>
       <h2>Statistics</h2>
-      {good + neutral + bad === 0 ? (
-        children
+      {total === 0 ? (
+        <Notification message="No feedback given" />
       ) : (
-        <ul className="statistics-list">
-          <li>
-            <p>Good: {good}</p>
-          </li>
-          <li>
-            <p>Neutral: {neutral}</p>
-          </li>
-          <li>
-            <p>Bad: {bad}</p>
-          </li>
-          <li>
-            <p>Total: {total}</p>
-          </li>
-          <li>
-            <p>Positive feedback: {total === 0 ? 0 : positivePercentage}%</p>
-          </li>
-        </ul>
+        <StatisticsList
+          good={good}
+          neutral={neutral}
+          bad={bad}
+          total={total}
+          positivePercentage={positivePercentage}
+        />
       )}
     </div>
   );
 };
 
 Statistics.propTypes = {
-  good: PropTypes.number.isRequired,
-  neutral: PropTypes.number.isRequired,
-  bad: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
   positivePercentage: PropTypes.number.isRequired,
-  children: PropTypes.element.isRequired,
 };
 
 export default Statistics;
